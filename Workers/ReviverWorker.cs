@@ -15,21 +15,49 @@ namespace Reviver.Workers
 
         private void DoWork(object state)
         {
-            const string appReviver = "http://appreviver.somee.com/";
+            const string reviver = "http://reviver.somee.com/";
+            const string hrHarmonyProductionSmarterAspUrl = "http://hrharmony-001-site1.gtempurl.com/Employee";
+            const string chilloutRoomProductionSmarterAspUrl = "http://chilloutroom1-001-site1.atempurl.com/Account/Login";
 
             using var client = new WebClient();
 
             try
             {
-                var data = client.DownloadData(appReviver);
+                var data = client.DownloadData(reviver);
                 if (data.Any())
-                    _logger.LogInformation("Powodzenie! WebClient.DownloadData posiada dane. Url - " + appReviver);
+                    _logger.LogInformation("Powodzenie! WebClient.DownloadData posiada dane. Url - " + reviver);
                 else
-                    _logger.LogError("Blad! WebClient.DownloadData nie posiada danych. Url - " + appReviver);
+                    _logger.LogError("Blad! WebClient.DownloadData nie posiada danych. Url - " + reviver);
             }
             catch (Exception ex)
             {
-                _logger.LogError("Blad===========//========== URL: " + appReviver, ex);
+                _logger.LogError("Blad===========//========== URL: " + reviver, ex);
+            }
+
+            try
+            {
+                var data = client.DownloadData(hrHarmonyProductionSmarterAspUrl);
+                if (data.Any())
+                    _logger.LogInformation("Powodzenie! WebClient.DownloadData posiada dane. Url - " + hrHarmonyProductionSmarterAspUrl);
+                else
+                    _logger.LogError("Blad! WebClient.DownloadData nie posiada danych. Url - " + hrHarmonyProductionSmarterAspUrl);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Blad===========//========== URL: " + hrHarmonyProductionSmarterAspUrl, ex);
+            }
+
+            try
+            {
+                var data = client.DownloadData(chilloutRoomProductionSmarterAspUrl);
+                if (data.Any())
+                    _logger.LogInformation("Powodzenie! WebClient.DownloadData posiada dane. Url - " + chilloutRoomProductionSmarterAspUrl);
+                else
+                    _logger.LogError("Blad! WebClient.DownloadData nie posiada danych. Url - " + chilloutRoomProductionSmarterAspUrl);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Blad===========//========== URL: " + chilloutRoomProductionSmarterAspUrl, ex);
             }
         }
 
