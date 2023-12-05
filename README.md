@@ -22,6 +22,7 @@ Bootstrap
 ## Jak uruchomić aplikację
 
 1. Uruchom aplikację (Ctrl+F5).  
+  
 
-
-> Reviver współpracuje ze swoim odpowiednikiem, tworząc spójne środowisko dla aplikacji. Odpowiednik regularnie kontaktuje się z głównym Reviverem, który nadzoruje nie tylko swój odpowiednik, lecz także inne aplikacje, dbając o ich ciągłą aktywność.
+  
+> Reviver współpracuje ze swoim [odpowiednikiem](http://reviver.somee.com), tworząc spójne środowisko dla aplikacji. Odpowiednik regularnie kontaktuje się z głównym Reviverem, który nadzoruje nie tylko swój odpowiednik, lecz także inne aplikacje, dbając o ich ciągłą aktywność.
