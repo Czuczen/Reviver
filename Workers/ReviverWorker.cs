@@ -17,9 +17,11 @@ namespace Reviver.Workers
         {
             const string reviver = "http://reviver.somee.com";
             const string hrHarmonyProductionSmarterAspUrl = "http://hrharmony-001-site1.gtempurl.com/Employee";
-            const string chilloutRoomProductionSmarterAspUrl = "http://chilloutroom1-001-site1.atempurl.com/Account/Login";
+            const string chilloutRoomProductionSmarterAspUrl = "http://chilloutroom2-001-site1.gtempurl.com/Account/Login";
 
             using var client = new WebClient();
+
+            client.Headers.Add("X-Reviver-Request", "true");
 
             try
             {

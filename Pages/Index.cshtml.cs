@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Reviver.Logging;
 using System.Text;
 
@@ -6,6 +7,9 @@ namespace Reviver.Pages
 {
     public class IndexModel : PageModel
     {
+        private readonly IConfiguration _configuration;
+
+
         public List<List<string>> TraceLogs { get; } = new();
 
         public List<List<string>> DebugLogs { get; } = new();
@@ -21,14 +25,24 @@ namespace Reviver.Pages
         public List<List<string>> NoneLogs { get; } = new();
 
 
-        private readonly IConfiguration _configuration;
+        public bool LogsLoaded { get; private set; }
 
+        
         public IndexModel(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public void OnGet()
+        public IActionResult OnPostShowLogs()
+        {
+            LoadLogs();
+
+            LogsLoaded = true;
+
+            return Page();
+        }
+
+        private void LoadLogs()
         {
             var logFilePath = _configuration.GetSection("Logging:FileLogging").Get<FileLoggerConfiguration>().LogFilePath;
             var logDirectory = Path.GetDirectoryName(logFilePath);
