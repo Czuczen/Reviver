@@ -16,7 +16,7 @@ namespace Reviver.Workers
         private void DoWork(object state)
         {
             const string reviver = "http://reviver.somee.com";
-            const string hrHarmonyProductionSmarterAspUrl = "http://hrharmony-001-site1.gtempurl.com/Employee";
+            const string hrHarmonyProductionSmarterAspUrl = "http://hrharmony2-001-site1.ctempurl.com/Employee";
             const string chilloutRoomProductionSmarterAspUrl = "http://chilloutroom2-001-site1.gtempurl.com/Account/Login";
 
             using var client = new WebClient();
