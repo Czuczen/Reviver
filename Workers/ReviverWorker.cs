@@ -17,7 +17,6 @@ namespace Reviver.Workers
         {
             const string reviver = "http://reviver.somee.com";
             const string hrHarmonyProductionSmarterAspUrl = "http://hrharmony2-001-site1.ctempurl.com/Employee";
-            const string chilloutRoomProductionSmarterAspUrl = "http://chilloutroom2-001-site1.gtempurl.com/Account/Login";
 
             using var client = new WebClient();
 
@@ -47,19 +46,6 @@ namespace Reviver.Workers
             catch (Exception ex)
             {
                 _logger.LogError("Blad===========//========== URL: " + hrHarmonyProductionSmarterAspUrl, ex);
-            }
-
-            try
-            {
-                var data = client.DownloadData(chilloutRoomProductionSmarterAspUrl);
-                if (data.Any())
-                    _logger.LogInformation("Powodzenie! WebClient.DownloadData posiada dane. Url - " + chilloutRoomProductionSmarterAspUrl);
-                else
-                    _logger.LogError("Blad! WebClient.DownloadData nie posiada danych. Url - " + chilloutRoomProductionSmarterAspUrl);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError("Blad===========//========== URL: " + chilloutRoomProductionSmarterAspUrl, ex);
             }
         }
 
